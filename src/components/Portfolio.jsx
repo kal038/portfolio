@@ -4,13 +4,13 @@ import PortfolioItem from "./PortfolioItem";
 const portfolio = [
   {
     title: "Apply Flow",
-    imgUrl: "/assets/terminal-website.jpg",
+    imgUrl: "/assets/applyflow.png",
     stack: ["React", "Node", "TypeScript", "AWS"],
     link: "http://applyflow.xyz",
   },
   {
     title: "Developer Portfolio",
-    imgUrl: "/assets/dev-portfolio.jpg",
+    imgUrl: "/assets/portfolio.png",
     stack: ["React", "Tailwind", "Vite"],
     link: "http://khoianhlam.com",
   },
