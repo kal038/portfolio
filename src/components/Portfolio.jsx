@@ -1,22 +1,24 @@
 import React from "react";
 import PortfolioItem from "./PortfolioItem";
+import applyflowImg from "/assets/applyflow.png";
+import portfolioImg from "/assets/portfolio.png";
 
 const portfolio = [
   {
     title: "Apply Flow",
-    imgUrl: "/assets/applyflow.png",
+    imgUrl: applyflowImg,
     stack: ["React", "Node", "TypeScript", "AWS"],
     link: "http://applyflow.xyz",
   },
   {
     title: "Developer Portfolio",
-    imgUrl: "/assets/portfolio.png",
+    imgUrl: portfolioImg,
     stack: ["React", "Tailwind", "Vite"],
     link: "http://khoianhlam.com",
   },
   {
     title: "Jiggle Bliss",
-    imgUrl: "/assets/ai-nerf-gun.jpg",
+    imgUrl: portfolioImg,
     stack: ["Next.js", "Tailwind", "Supabase", "Vercel"],
     link: "http://jigglebliss.com",
   },
