@@ -93,31 +93,31 @@ const skillCategories = [
 
 function Skills() {
   return (
-    <div className="flex flex-col items-center justify-center">
+    <div className="flex flex-col items-center justify-center px-4">
       <Title>Skills & Technologies</Title>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-6xl">
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 md:gap-6 w-full max-w-4xl">
         {skillCategories.map((category, index) => (
           <div
             key={index}
-            className="bg-white dark:bg-stone-800 p-6 rounded-xl shadow-lg border border-stone-200 dark:border-stone-700 hover:shadow-xl transition-shadow duration-300"
+            className="bg-white dark:bg-stone-800 p-3 md:p-6 rounded-xl shadow-lg border border-stone-200 dark:border-stone-700 hover:shadow-xl transition-shadow duration-300"
           >
-            <h3 className="text-xl font-bold mb-6 text-center text-stone-900 dark:text-white">
+            <h3 className="text-base md:text-xl font-bold mb-3 md:mb-6 text-center text-stone-900 dark:text-white">
               {category.category}
             </h3>
-            <div className="grid grid-cols-3 gap-4">
+            <div className="grid grid-cols-3 gap-2 md:gap-4">
               {category.skills.map((skill, skillIndex) => (
                 <div
                   key={skillIndex}
-                  className="flex flex-col items-center p-3 rounded-lg hover:bg-stone-50 dark:hover:bg-stone-700 transition-colors duration-200 group"
+                  className="flex flex-col items-center p-1 md:p-3 rounded-lg hover:bg-stone-50 dark:hover:bg-stone-700 transition-colors duration-200 group"
                 >
-                  <div className="mb-2 transform group-hover:scale-110 transition-transform duration-200">
+                  <div className="mb-1 md:mb-2 transform group-hover:scale-110 transition-transform duration-200">
                     <img
                       src={skill.icon}
                       alt={skill.name}
-                      className="w-8 h-8 filter dark:invert"
+                      className="w-5 h-5 md:w-8 md:h-8 filter dark:invert"
                     />
                   </div>
-                  <span className="text-xs font-medium text-center text-stone-700 dark:text-stone-300">
+                  <span className="text-xs font-medium text-center text-stone-700 dark:text-stone-300 leading-tight">
                     {skill.name}
                   </span>
                 </div>

@@ -24,10 +24,11 @@ const portfolio = [
 
 function Portfolio() {
   return (
-    <div className="flex flex-col md:flex-row items-center justify-center">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {portfolio.map((project) => (
+    <div className="flex flex-col items-center justify-center px-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 w-full max-w-6xl">
+        {portfolio.map((project, index) => (
           <PortfolioItem
+            key={index}
             imgUrl={project.imgUrl}
             title={project.title}
             stack={project.stack}
