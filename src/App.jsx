@@ -6,6 +6,7 @@ import Portfolio from "./components/Portfolio";
 import Skills from "./components/Skills";
 import Timeline from "./components/Timeline";
 import SectionNav from "./components/SectionNav";
+import Resume from "./components/Resume";
 
 function App() {
   const [theme, setTheme] = useState(null);
@@ -102,6 +103,15 @@ function App() {
         >
           <div className="max-w-5xl w-11/12 mx-auto">
             <Portfolio />
+          </div>
+        </section>
+
+        <section
+          id="resume"
+          className="snap-start h-screen flex items-center justify-center"
+        >
+          <div className="max-w-5xl w-11/12 mx-auto">
+            <Resume />
           </div>
         </section>
 
