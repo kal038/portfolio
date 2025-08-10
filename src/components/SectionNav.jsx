@@ -13,46 +13,26 @@ function SectionNav() {
   const [activeSection, setActiveSection] = useState("intro");
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Get the container that has the scroll-snap
-      const container = document.querySelector(".snap-y");
-      if (!container) return;
-
-      const containerRect = container.getBoundingClientRect();
-      const containerCenter = containerRect.height / 2;
-
-      let closestSection = null;
-      let closestDistance = Infinity;
-
-      sections.forEach((section) => {
-        const element = document.getElementById(section.id);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          const elementCenter = rect.top + rect.height / 2;
-          const distance = Math.abs(elementCenter - containerCenter);
-
-          if (distance < closestDistance) {
-            closestDistance = distance;
-            closestSection = section.id;
-          }
-        }
-      });
-
-      if (closestSection && closestSection !== activeSection) {
-        setActiveSection(closestSection);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible) setActiveSection(visible.target.id);
+      },
+      {
+        root: null, // viewport or scroll container if you pass one
+        threshold: [0.3, 0.6],
       }
-    };
+    );
 
-    // Use the container's scroll event instead of window
-    const container = document.querySelector(".snap-y");
-    if (container) {
-      container.addEventListener("scroll", handleScroll);
-      // Also check on initial load
-      handleScroll();
+    sections.forEach((s) => {
+      const el = document.getElementById(s.id);
+      if (el) observer.observe(el);
+    });
 
-      return () => container.removeEventListener("scroll", handleScroll);
-    }
-  }, [activeSection]);
+    return () => observer.disconnect();
+  }, []);
 
   const scrollToSection = (sectionId) => {
     const element = document.getElementById(sectionId);
